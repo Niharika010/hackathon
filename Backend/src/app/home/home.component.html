@@ -1,0 +1,28 @@
+<div class="container-fluid">
+
+  <div>
+      <label>Name</label>
+      <input [(ngModel)]="element.name" ><br/>
+      <label>price</label>
+    <input  [(ngModel)]="element.price"  ><br/>
+    <label>image url</label>
+    <input  [(ngModel)]="element.img"  ><br/>
+    <label>category id</label>
+    <input  [(ngModel)]="element.category"  ><br/>
+    <button type="button" (click)= "insert()" class="btn btn-outline-primary">Add</button>
+  </div>
+
+  <br>
+  <br>
+  <div *ngFor="let item of testObservable | async"> 
+    <div  class="card" style="width:200px; float:left"  >
+      <img class="card-img-top" src="{{item.img}}" alt="Card image">
+      <div class="card-body">
+        <input  [(ngModel)]="item.name"  > <br>
+       <input  [(ngModel)]="item.price" > <br>
+        <button type="button" (click)= "update(item)" class="btn btn-outline-primary">Update</button>
+      </div>
+    </div>
+  </div>
+
+</div>
